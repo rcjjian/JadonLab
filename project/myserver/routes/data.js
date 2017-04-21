@@ -1,38 +1,46 @@
 var express = require('express');
 var router = express.Router();
+var session = require('express-session');
 var fs = require('fs');//fileStream
 
 DATA_FILE_PATH = './public/data/';
 
 ERROR_TYPE = {
-	result : 0,
+	status : 0,
 	msg : '数据类型异常'
 };
 
 ERROR_WRITE_DATA = {
-	result : 0,
+	status : 0,
 	msg : '数据输入不全'
 };
 
 ERROR_READ_FILE = {
-	result : 0,
+	status : 0,
 	msg : '读取数据异常'
 };
 
 ERROR_WRITE_FILE = {
-	result : 0,
+	status : 0,
 	msg : '写入数据异常'
 };
 
-SUCCESS_WRITE_FILE = {
-	result : 1,
-	msg : '写入数据成功'
+ERROR_LOGIN_ERROR = {
+	status : 0,
+	msg : '尚未登录'
 };
+
 
 FILE_COUNT_MAX_LIMIT = 50; //读取数据时 只返回前50条数据
 
 
 router.get('/write', function(req, res) {
+
+	if(!session.user){
+		console.log(session.user);
+		return res.send(ERROR_LOGIN_ERROR);
+	}
+
 	var type = req.param('type');
 	if(checkType(type,res)){
 
@@ -61,7 +69,10 @@ router.get('/write', function(req, res) {
 					if(err){
 						return res.send(ERROR_WRITE_FILE);
 					}
-					return res.send(SUCCESS_WRITE_FILE);
+					return res.send({
+						status : 1,
+						info : obj
+					});
 				});
 			});
 		}
@@ -87,8 +98,8 @@ router.get('/read',function(req,res) {
 			}
 
 			return res.send({
-				result : 1,
-				data : readList;
+				status : 1,
+				data : readList
 			});
 		})
 	}
