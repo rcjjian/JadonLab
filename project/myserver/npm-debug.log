@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'F:\\nodejs\\node.exe',
+1 verbose cli   'F:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.2
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle myserver@0.0.0~prestart: myserver@0.0.0
+6 silly lifecycle myserver@0.0.0~prestart: no script for prestart, continuing
+7 info lifecycle myserver@0.0.0~start: myserver@0.0.0
+8 verbose lifecycle myserver@0.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle myserver@0.0.0~start: PATH: F:\nodejs\node_modules\npm\bin\node-gyp-bin;D:\workspaceInGit\JadonLab\project\myserver\node_modules\.bin;F:\Python27\;F:\Python27\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;F:\SVN\bin;F:\Java\jdk1.8.0_25\bin;F:\Java\jdk1.8.0_25\jre\bin;F:\apache-tomcat-7.0.59-windows-x64\apache-tomcat-7.0.59\lib;F:\apache-tomcat-7.0.59-windows-x64\apache-tomcat-7.0.59\bin;F:\apache-ant-1.9.6\bin;F:\adtEclipse\sdk\platform-tools;F:\adtEclipse\sdk\tools;F:\gradle\gradle-2.2.1\bin;C:\Program Files (x86)\Subversion\bin;C:\Program Files\Git\cmd;F:\nodejs\;F:\cocos\cocos2d-x-3.13.1\templates;F:\cocos\cocos2d-x-3.13.1\tools\cocos2d-console\bin;C:\Program Files (x86)\Subversion\bin;C:\Users\Administrator\AppData\Roaming\npm;F:\Egret\Egret Wing 3\bin
+10 verbose lifecycle myserver@0.0.0~start: CWD: D:\workspaceInGit\JadonLab\project\myserver
+11 silly lifecycle myserver@0.0.0~start: Args: [ '/d /s /c', 'node ./bin/www' ]
+12 silly lifecycle myserver@0.0.0~start: Returned: code: 3221225786  signal: null
+13 info lifecycle myserver@0.0.0~start: Failed to exec start script
+14 verbose stack Error: myserver@0.0.0 start: `node ./bin/www`
+14 verbose stack Exit status 3221225786
+14 verbose stack     at EventEmitter.<anonymous> (F:\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (F:\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid myserver@0.0.0
+16 verbose cwd D:\workspaceInGit\JadonLab\project\myserver
+17 error Windows_NT 6.1.7601
+18 error argv "F:\\nodejs\\node.exe" "F:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+19 error node v6.10.2
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error myserver@0.0.0 start: `node ./bin/www`
+22 error Exit status 3221225786
+23 error Failed at the myserver@0.0.0 start script 'node ./bin/www'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the myserver package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node ./bin/www
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs myserver
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls myserver
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
