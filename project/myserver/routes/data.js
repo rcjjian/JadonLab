@@ -37,8 +37,9 @@ FILE_COUNT_MAX_LIMIT = 50; //读取数据时 只返回前50条数据
 router.get('/write', function(req, res) {
 
 	if(!session.user){
-		console.log(session.user);
-		return res.send(ERROR_LOGIN_ERROR);
+		return res.render('login',ERROR_LOGIN_ERROR,function(err,html) {
+			console.log(err);
+		});
 	}
 
 	var type = req.param('type');

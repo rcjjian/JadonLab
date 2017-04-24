@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 
-router.get('/',function(req,res) {
+router.get('/login',function(req,res) {
 	var name = req.param('username');
 	var pwd = req.param('password');
 
