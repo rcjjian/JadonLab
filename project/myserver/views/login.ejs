@@ -3,12 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>登录模块</title>
-
+    <script type="text/javascript" src="/javascripts/jquery-3.2.1.min.js"></script>
 </head>
 <body>
     <div>
-
-        <input type="text" name="username"/>
+        <input id="usernameTxt" type="text"/>
+        <input id="passwordTxt" type="password"/>
+        <input id="btn" type="button" value="提交"/>
     </div>
+    <script type="text/javascript">
+        $('#btn').on('click',function() {
+            var name = $('#usernameTxt').val();
+            var pwd = $('#passwordTxt').val();
+
+            var obj = {
+                username: name,
+                password: pwd
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/login',
+                data: obj,
+                success: function(data){
+                    if(data.status){
+                        window.location.href = '/';
+                    }else{
+                        alert(status + '登录失败');
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                },
+                dataType: 'json' //返回数据格式 也必须为json
+            });
+        });
+    </script>
 </body>
 </html>

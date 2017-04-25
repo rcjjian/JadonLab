@@ -106,7 +106,6 @@ router.get('/read',function(req,res) {
 	}
 });
 
-
 var checkType = function(type,res) {
 	if(type == undefined){
 		res.send(ERROR_TYPE);
@@ -114,7 +113,7 @@ var checkType = function(type,res) {
 	}else{
 		return true;
 	}
-}
+};
 
 var checkWriteData = function(req,res) {
 	var title = req.param('title');
@@ -126,7 +125,7 @@ var checkWriteData = function(req,res) {
 		return false;
 	}
 	return true;
-}
+};
 
 //guid
 function guidGenerate() {
