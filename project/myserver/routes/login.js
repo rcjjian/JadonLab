@@ -7,8 +7,8 @@ var session = require('express-session');
 
 router.post('/',function(req,res,next) {
 
-    var name = req.param('username');
-    var pwd = req.param('password');
+    var name = req.body.username;
+    var pwd = req.body.password;
     console.log(name,pwd);
 
     if(name === 'admin' && pwd === '123456'){
@@ -18,7 +18,8 @@ router.post('/',function(req,res,next) {
         };
         return res.send({  //返回json格式数据
             status : 1,
-            msg : '登录成功'
+            msg : '登录成功',
+            user : session.user
         });
     }else{
         return res.send({

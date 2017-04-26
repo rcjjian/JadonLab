@@ -3,14 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>登录模块</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script type="text/javascript" src="/javascripts/jquery-3.2.1.min.js"></script>
+    <style type="text/css" rel="stylesheet">
+        .panel {
+            width: 380px;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 100px;
+            font-size: 14px;
+        }
+        .login_input>span {
+            display: inline-block;
+            width:50px;
+        }
+        input {
+            height:28px;
+            line-height:28px;
+            width:300px;
+            border:1px solid #ddd;
+            border-radius:4px;
+            margin-left:5px;
+            margin-bottom:10px;
+            outline: none;
+            padding-left:10px;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <input id="usernameTxt" type="text"/>
-        <input id="passwordTxt" type="password"/>
-        <input id="btn" type="button" value="提交"/>
+    <div class="header">
+        <div class="header_title"><a href="/">后台管理系统</a></div>
     </div>
+    <div class="panel">
+        <div class="login_input">
+            <span>用户名</span>
+            <input id="usernameTxt" placeholder="请输入用户名"/>
+        </div>
+        <div class="login_input">
+            <span>密码</span>
+            <input id="passwordTxt" type="password" placeholder="请输入密码"/>
+        </div>
+        <div id="btn" style="background-color:#3C74F2;width:306px;height:32px;line-height:32px;text-align: center;color:#fff;border-radius:4px;margin-top:30px;margin-left:60px;">
+            登录
+        </div>
+    </div>
+
+    <!---------------------------------scripts----------------------------->
     <script type="text/javascript">
         $('#btn').on('click',function() {
             var name = $('#usernameTxt').val();

@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>后台管理</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+      <style type="text/css" rel="stylesheet">
+          .panel {
+              width:606px;
+              height:500px;
+              margin-left:auto;
+              margin-right:auto;
+              padding-top:100px;
+          }
+          .panel_item {
+              width:606px;
+              height:200px;
+          }
+          .panel_item>a {
+              width:300px;
+              height:200px;
+              display:inline-block;
+              line-height:200px;
+              font-size:30px;
+              color:#fff;
+              text-align:center;
+          }
+      </style>
   </head>
   <body>
-   <h1>主页</h1>
+  <div class="header">
+      <div class="header_title"><a href="/">后台管理系统</a><span class="header_user">欢迎你,<%=user.username%></span></div>
+  </div>
+  <div class="panel">
+      <div class="panel_item">
+          <a style="background-color:#39A3F9;" href="/edit?type=it">互联网</a>
+          <a style="background-color:#D33733;" href="/edit?type=joke">笑料</a>
+      </div>
+      <div class="panel_item">
+          <a style="background-color:#1B924A;" href="/edit?type=manager">管理</a>
+          <a style="background-color:#FEC536;" href="/edit?type=sanwen">散文</a>
+      </div>
+      <div class="panel_item">
+          <a style="background-color:#D94C59;" href="/config">模块配置</a>
+      </div>
+  </div>
   </body>
 </html>
