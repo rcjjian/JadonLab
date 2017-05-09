@@ -1,65 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import { AppRegistry } from 'react-native';
+import { TabNavigator } from 'react-navigation';
 
-export default class ToiletApp extends Component {
+import ContentView from './react/view/contentView';
+import ToiletView from './react/view/toiletView';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedTab : 'home'
-    };
+const ToiletApp = TabNavigator({
+  ToiletView: {
+    screen: ToiletView,
+  },
+  ContentView: {
+    screen: ContentView,
   }
-
-  render() {
-    return (
-     <TabNavigator>
-  <TabNavigator.Item
-    selected={this.state.selectedTab === 'home'}
-    title="Home"
-    badgeText="1"
-    onPress={() => this.setState({ selectedTab: 'home' })}>
-    {homeView}
-  </TabNavigator.Item>
-  <TabNavigator.Item
-    selected={this.state.selectedTab === 'profile'}
-    title="Profile"
-    onPress={() => this.setState({ selectedTab: 'profile' })}>
-    {profileView}
-  </TabNavigator.Item>
-</TabNavigator>
-    );
+}, 
+{
+  tabBarOptions: {
+    activeBackgroundColor: '#33CCFF',
+    inactiveBackgroundColor : '#FFFFFF',
+    activeTintColor : '#FFFFFF',
+    inactiveTintColor : '#33CCFF',
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+},
+{
+  style : {
+    backgroundColor:'#FFFFFF'
+  }
+},
+{
+	tabBarPosition  : 'bottom' //显示在底部，但暂时android6.0设置了还是在顶部
 });
 
-AppRegistry.registerComponent('ToiletApp', () => ToiletApp);
+
+AppRegistry.registerComponent('ToiletApp', () => ToiletApp);  //一般情况下，整个应用只设置一次
