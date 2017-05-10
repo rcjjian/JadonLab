@@ -19,15 +19,12 @@ const ToiletApp = TabNavigator({
     inactiveBackgroundColor : '#FFFFFF',
     activeTintColor : '#FFFFFF',
     inactiveTintColor : '#33CCFF',
-  }
-},
-{
+  },
   style : {
     backgroundColor:'#FFFFFF'
-  }
-},
-{
-	tabBarPosition  : 'bottom' //显示在底部，但暂时android6.0设置了还是在顶部
+  },
+  tabBarPosition  : 'bottom',
+  swipeEnabled : false
 });
 
 

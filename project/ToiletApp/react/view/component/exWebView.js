@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
 	View,
 	WebView,
+	Text,
 	StyleSheet
 }from 'react-native';
 
@@ -15,13 +16,13 @@ class ExWebView extends Component {
 	
 	  this.state = {
 	  	url : this.props.url,
-	  	isShowError : false
+	  	isShowError : false,
 	  };
 	}
 
 	render(){
 
-		let url = {uri:this.state.url};
+		let url = !this.state.url ? require('./aMap.html') : {uri:this.state.url};
 
 		return (
 			<View style={styles.container}>
@@ -32,10 +33,11 @@ class ExWebView extends Component {
 						</View>
 					:
 					<WebView 
+							automaticallyAdjustContentInsets = {false}
 							style = {styles.container}
 							startInLoadingState = {true} //开始加载时显示loadding提示
 							source = {url}
-							onError = {this._loadError.bind(this)} //调用
+							onError = {() => this._loadError.bind(this)} //调用
 					/>
 				}
 			</View>
@@ -50,6 +52,7 @@ class ExWebView extends Component {
 	}
  
 }
+
 
 const styles = StyleSheet.create({
   container: {

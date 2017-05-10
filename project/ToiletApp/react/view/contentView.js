@@ -29,9 +29,6 @@ class ContentView extends Component{
         			<Text>B</Text>
         		</View>
       </Swiper>
-
-
-
 		);
 	}
 }

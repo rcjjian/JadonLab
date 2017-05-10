@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import ExWebView from './component/exWebView';
 
-const MAP_URL = '../map/aMap.html';
 
 class ToiletView extends Component{
 
@@ -20,8 +19,7 @@ class ToiletView extends Component{
 
 	render(){
 		return (
-			 //<ExWebView url={MAP_URL}/>
-			 <Text>HelloWorld</Text>
+			 <ExWebView/>
 		);
 	}
 }
