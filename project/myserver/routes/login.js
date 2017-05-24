@@ -3,53 +3,35 @@
  */
 var express = require('express');
 var router = express.Router();
-var session = require('express-session');
+var session = require('express-session');  //使用到session
 
-var MongoDBConnect = require('../public/javascripts/mongoDBConnection');
-var mongoDB = new MongoDBConnect();
+var user = require('../model/user');  //引用操作user
 
 router.post('/',function(req,res,next) {
 
     var name = req.body.username;
     var pwd = req.body.password;
 
-    var userModel = mongoDB.getModel("user");
-    var query = {
-        username : name,
-        password : pwd
-    };
-
-    new userModel(query).save(function(err) {
-        console.log(err);
+    user.getLoginUser(req.body,function(err,doc) {  //点用user接口，将request.body传入（此时的request.body = {username:'admin'}）
+        if(!err){
+            if(doc){ //查询结果不为空，则查询成功
+                session.user = {
+                    username : name,
+                    password : pwd
+                };
+                return res.send({  //返回json格式数据
+                    status : 1,
+                    msg : '登录成功',
+                    user : session.user
+                });
+            }else{
+                return res.send({
+                    status : 0,
+                    msg : '登录失败'
+                });
+            }
+        }
     });
-
-
-    userModel.find(function(err,doc) {
-        console.log(doc);
-    });
-
-    //userModel.count(query,function(err,doc) {
-    //    console.log(doc);
-    //    if(!err){
-    //        if(doc == 1){
-    //            session.user = {
-    //                username : name,
-    //                password : pwd
-    //            };
-    //            return res.send({  //返回json格式数据
-    //                status : 1,
-    //                msg : '登录成功',
-    //                user : session.user
-    //            });
-    //        }else{
-    //            return res.send({
-    //                status : 0,
-    //                msg : '登录失败'
-    //            });
-    //        }
-    //    }
-    //});
-
 });
 
 module.exports = router;

@@ -66,6 +66,7 @@
                 data: obj,
                 success: function(data){
                     if(data.status){
+                        console.log(data.user);
                         window.location.href = '/';
                     }else{
                         alert(status + '登录失败');
