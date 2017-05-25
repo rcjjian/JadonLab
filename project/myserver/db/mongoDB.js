@@ -11,6 +11,7 @@ var connect = mongoose.createConnection(config.mongodb); //建立连接
 const Schema = mongoose.Schema;  //使用mongoose的Schema
 
 exports.User = connect.model('User',new Schema({
+    _id:{},
     username : String,
     password : String
 }),'user');  //exports一个 UserModel
@@ -19,4 +20,6 @@ exports.User = connect.model('User',new Schema({
 // connect.model('为Model建立一个唯一名称',schema对象,'需要查询在mongoDB中的collectionName')
 
 
+exports.Content = connect.model('Content',new Schema({
 
+}),'content');
