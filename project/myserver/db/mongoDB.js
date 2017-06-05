@@ -5,15 +5,16 @@
 
 var mongoose = require('mongoose'); //mongoose 插件 操作 mongoDB
 var config = require('config-lite')(__dirname); //config-list插件 操作config/default.js
+var uuid = require('../util/UUID');
 
 var connect = mongoose.createConnection(config.mongodb); //建立连接
 
 const Schema = mongoose.Schema;  //使用mongoose的Schema
 
 exports.User = connect.model('User',new Schema({
-    _id:{},
-    username : String,
-    password : String
+	uId : {type : String, default : uuid.guidGenerate()},
+    username : {type : String},
+    password : {type : String}
 }),'user');  //exports一个 UserModel
 
 // model方法 三个必备参数
@@ -21,5 +22,9 @@ exports.User = connect.model('User',new Schema({
 
 
 exports.Content = connect.model('Content',new Schema({
-
+	cId : {type : String, default : uuid.guidGenerate()},
+	title : {type : String},
+	img : {type : String},
+	url : {type : String},
+	date : {type : Date , default : Date.now}
 }),'content');

@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 var fs = require('fs');//fileStream
-
-DATA_FILE_PATH = './public/data/';
+var content = require('../model/content');
 
 ERROR_TYPE = {
 	status : 0,
@@ -143,15 +142,5 @@ var checkWriteData = function(req,res) {
 	}
 	return true;
 };
-
-//guid
-function guidGenerate() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0,
-      v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  }).toUpperCase();
-}
-
 
 module.exports = router;
